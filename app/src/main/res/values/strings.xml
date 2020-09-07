@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">GhibLibrary</string>
+
+    <string name="films_pascal">Films</string>
+    <string name="more_pascal">More</string>
+</resources>

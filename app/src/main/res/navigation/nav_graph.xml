@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/filmsFragment">
+
+    <fragment
+        android:id="@+id/filmsFragment"
+        android:name="com.jensencelestial.ghiblibrary.android.ui.film.FilmsFragment">
+        <action
+            android:id="@+id/action_filmsFragment_to_filmFragment"
+            app:destination="@id/filmFragment" />
+        <action
+            android:id="@+id/action_filmsFragment_to_moreFragment"
+            app:destination="@id/moreFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/filmFragment"
+        android:name="com.jensencelestial.ghiblibrary.android.ui.film.FilmFragment"
+        android:label="">
+        <argument
+            android:name="filmId"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/moreFragment"
+        android:name="com.jensencelestial.ghiblibrary.android.ui.more.MoreFragment"
+        android:label="@string/more_pascal" />
+
+</navigation>

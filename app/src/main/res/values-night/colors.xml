@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primaryColor">#446590</color>
+    <color name="primaryLightColor">#7492c0</color>
+    <color name="primaryDarkColor">#103b62</color>
+    <color name="secondaryColor">#ad8152</color>
+    <color name="secondaryLightColor">#e1b07f</color>
+    <color name="secondaryDarkColor">#7b5528</color>
+    <color name="primaryTextColor">#000000</color>
+    <color name="secondaryTextColor">#ffffff</color>
+
+    <color name="backgroundLight">@color/md_grey_50</color>
+
+    <color name="md_grey_50">#FAFAFA</color>
+
+</resources>
