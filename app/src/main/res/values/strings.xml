@@ -1,6 +1,28 @@
 <resources>
     <string name="app_name">GhibLibrary</string>
 
+    <string name="age_pascal">Age</string>
+    <string name="climate_pascal">Climate</string>
+    <string name="director_pascal">Director</string>
+    <string name="eye_color_pascal">Eye Color</string>
+    <string name="eye_colors_pascal">Eye Colors</string>
+    <string name="film_image_pascal">Film Image</string>
     <string name="films_pascal">Films</string>
-    <string name="more_pascal">More</string>
+    <string name="gender_pascal">Gender</string>
+    <string name="hair_color_pascal">Hair Color</string>
+    <string name="hair_colors_pascal">Hair Colors</string>
+    <string name="location_image_pascal">Location Image</string>
+    <string name="locations_pascal">Locations</string>
+    <string name="people_pascal">People</string>
+    <string name="person_pascal">Person</string>
+    <string name="person_image_pascal">Person Image</string>
+    <string name="producer_pascal">Producer</string>
+    <string name="rotten_tomatoes_score_pascal">Rotten Tomatoes Score</string>
+    <string name="species_pascal">Species</string>
+    <string name="species_image_pascal">Species Image</string>
+    <string name="surface_water_pascal">Surface Water</string>
+    <string name="terrain_pascal">Terrain</string>
+    <string name="vehicles_pascal">Vehicles</string>
+    <string name="description_pascal">Description</string>
+
 </resources>

@@ -2,9 +2,10 @@ package com.jensencelestial.ghiblibrary.android.data.repository
 
 import com.jensencelestial.ghiblibrary.android.data.db.FilmDao
 import com.jensencelestial.ghiblibrary.android.data.mapper.toEntities
+import com.jensencelestial.ghiblibrary.android.data.mapper.toEntity
 import com.jensencelestial.ghiblibrary.android.data.model.Film
 import com.jensencelestial.ghiblibrary.android.data.model.api.FilmResponse
-import com.jensencelestial.ghiblibrary.android.data.network.FilmsService
+import com.jensencelestial.ghiblibrary.android.data.network.FilmService
 import com.jensencelestial.ghiblibrary.android.data.repository.result.RepResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -16,13 +17,13 @@ import javax.inject.Inject
 
 class FilmRepository @Inject constructor(
     private val filmDao: FilmDao,
-    private val filmsService: FilmsService
+    private val filmService: FilmService
 ) {
 
     suspend fun getFilms(): RepResult<List<Film>> {
         return try {
             // Get Films from API
-            val remoteFilmsResponse: Response<List<FilmResponse>> = filmsService.getFilms()
+            val remoteFilmsResponse: Response<List<FilmResponse>> = filmService.getFilms()
 
             if (remoteFilmsResponse.isSuccessful) {
                 var filmsToSave: List<Film> =
@@ -50,6 +51,49 @@ class FilmRepository @Inject constructor(
                         val localFilms: List<Film> = filmDao.getAllFilms()
 
                         RepResult.Success(result = localFilms)
+                    } catch (dbe: Exception) {
+                        Timber.e(e, "Get Films from DB failed.")
+
+                        RepResult.Error(exception = dbe)
+                    }
+                }
+                else -> RepResult.Error(exception = e)
+            }
+        }
+    }
+
+    suspend fun getFilm(filmId: String): RepResult<Film> {
+        return try {
+            // Get Film from API
+            val remoteFilmResponse: Response<FilmResponse> = filmService.getFilm(filmId)
+
+            if (remoteFilmResponse.isSuccessful) {
+                var filmToSave: Film? = remoteFilmResponse.body()?.toEntity()
+
+                if (filmToSave != null) {
+                    filmToSave = attachImageUrls(filmToSave)[0]
+
+                    // Save Films fetched from API to DB
+                    filmDao.insertFilm(filmToSave)
+                }
+
+                // Get all Films from the updated DB
+                val localFilms: Film = filmDao.getFilm(filmId)
+
+                RepResult.Success(result = localFilms)
+            } else {
+                RepResult.Error<Nothing>()
+            }
+        } catch (e: Exception) {
+            Timber.e(e, "Get Films from API failed.")
+
+            when (e) {
+                is SocketTimeoutException, is IOException -> {
+                    // For timeout errors, get Films from DB.
+                    return try {
+                        val localFilm: Film = filmDao.getFilm(filmId)
+
+                        RepResult.Success(result = localFilm)
                     } catch (dbe: Exception) {
                         Timber.e(e, "Get Films from DB failed.")
 

@@ -4,7 +4,10 @@ import android.content.Context
 import androidx.room.Room
 import com.jensencelestial.ghiblibrary.android.BuildConfig
 import com.jensencelestial.ghiblibrary.android.data.db.AppDatabase
-import com.jensencelestial.ghiblibrary.android.data.network.FilmsService
+import com.jensencelestial.ghiblibrary.android.data.network.FilmService
+import com.jensencelestial.ghiblibrary.android.data.network.LocationService
+import com.jensencelestial.ghiblibrary.android.data.network.PersonService
+import com.jensencelestial.ghiblibrary.android.data.network.SpeciesService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -34,6 +37,18 @@ class ApplicationModule {
     @Provides
     @Singleton
     fun provideFilmDao(appDatabase: AppDatabase) = appDatabase.filmDao()
+
+    @Provides
+    @Singleton
+    fun provideLocationDao(appDatabase: AppDatabase) = appDatabase.locationDao()
+
+    @Provides
+    @Singleton
+    fun providePeopleDao(appDatabase: AppDatabase) = appDatabase.peopleDao()
+
+    @Provides
+    @Singleton
+    fun provideSpeciesDao(appDatabase: AppDatabase) = appDatabase.speciesDao()
 
     @Provides
     @Singleton
@@ -69,5 +84,17 @@ class ApplicationModule {
 
     @Provides
     @Singleton
-    fun provideFilmsService(retrofit: Retrofit) = retrofit.create(FilmsService::class.java)
+    fun provideFilmsService(retrofit: Retrofit) = retrofit.create(FilmService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideLocationService(retrofit: Retrofit) = retrofit.create(LocationService::class.java)
+
+    @Provides
+    @Singleton
+    fun providePeopleService(retrofit: Retrofit) = retrofit.create(PersonService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideSpeciesService(retrofit: Retrofit) = retrofit.create(SpeciesService::class.java)
 }

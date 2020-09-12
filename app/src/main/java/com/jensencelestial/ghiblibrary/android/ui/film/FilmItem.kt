@@ -22,7 +22,7 @@ class FilmItem(val film: Film) : AbstractBindingItem<AdapterFilmListItemBinding>
 
         binding.tvTitle.text = film.title
 
-        binding.tvYearReleased.text = film.releaseDate
+        binding.lblYearReleased.tvYearReleased.text = film.releaseDate
     }
 
     override fun createBinding(

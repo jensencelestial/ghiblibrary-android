@@ -6,13 +6,11 @@
 
     <fragment
         android:id="@+id/filmsFragment"
-        android:name="com.jensencelestial.ghiblibrary.android.ui.film.FilmsFragment">
+        android:name="com.jensencelestial.ghiblibrary.android.ui.film.FilmsFragment"
+        android:label="@string/films_pascal">
         <action
             android:id="@+id/action_filmsFragment_to_filmFragment"
             app:destination="@id/filmFragment" />
-        <action
-            android:id="@+id/action_filmsFragment_to_moreFragment"
-            app:destination="@id/moreFragment" />
     </fragment>
 
     <fragment
@@ -25,8 +23,57 @@
     </fragment>
 
     <fragment
-        android:id="@+id/moreFragment"
-        android:name="com.jensencelestial.ghiblibrary.android.ui.more.MoreFragment"
-        android:label="@string/more_pascal" />
+        android:id="@+id/peopleFragment"
+        android:name="com.jensencelestial.ghiblibrary.android.ui.people.PeopleFragment"
+        android:label="@string/people_pascal">
+        <action
+            android:id="@+id/action_peopleFragment_to_personFragment"
+            app:destination="@id/personFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/personFragment"
+        android:name="com.jensencelestial.ghiblibrary.android.ui.people.PersonFragment"
+        android:label="">
+        <argument
+            android:name="personId"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/locationsFragment"
+        android:name="com.jensencelestial.ghiblibrary.android.ui.location.LocationsFragment"
+        android:label="@string/locations_pascal">
+        <action
+            android:id="@+id/action_locationsFragment_to_locationFragment"
+            app:destination="@id/locationFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/locationFragment"
+        android:name="com.jensencelestial.ghiblibrary.android.ui.location.LocationFragment"
+        android:label="">
+        <argument
+            android:name="locationId"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/speciesFragment"
+        android:name="com.jensencelestial.ghiblibrary.android.ui.species.SpeciesFragment"
+        android:label="@string/species_pascal">
+        <action
+            android:id="@+id/action_speciesFragment_to_speciesIdvFragment"
+            app:destination="@id/speciesIdvFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/speciesIdvFragment"
+        android:name="com.jensencelestial.ghiblibrary.android.ui.species.SpeciesIdvFragment"
+        android:label="">
+        <argument
+            android:name="speciesId"
+            app:argType="string" />
+    </fragment>
 
 </navigation>

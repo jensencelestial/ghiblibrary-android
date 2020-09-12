@@ -18,6 +18,6 @@ interface FilmDao {
     suspend fun getAllFilms(): List<Film>
 
     @Query("SELECT * FROM films WHERE id = :filmId")
-    suspend fun getFilm(filmId: Int): Film
+    suspend fun getFilm(filmId: String): Film
 
 }

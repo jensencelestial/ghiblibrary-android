@@ -7,8 +7,8 @@
         <item name="colorPrimaryVariant">@color/primaryLightColor</item>
         <item name="colorSecondary">@color/secondaryColor</item>
         <item name="colorSecondaryVariant">@color/secondaryLightColor</item>
-        <item name="android:textColorSecondary">@color/primaryTextColor</item>
-        <item name="android:textColorPrimary">@color/secondaryTextColor</item>
+        <item name="android:textColorPrimary">@color/primaryTextColor</item>
+        <item name="android:textColorSecondary">@color/secondaryTextColor</item>
         <item name="android:colorBackground">@color/backgroundLight</item>
 
         <item name="textAppearanceHeadline1">@style/TextAppearance.Headline1</item>

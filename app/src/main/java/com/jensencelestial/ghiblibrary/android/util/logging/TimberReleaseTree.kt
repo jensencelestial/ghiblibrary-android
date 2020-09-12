@@ -7,9 +7,8 @@ class TimberReleaseTree : Timber.Tree() {
         priority: Int,
         tag: String?,
         message: String,
-        t: Throwable?
+        t: Throwable?,
     ) {
         TODO("Not yet implemented")
     }
-
 }

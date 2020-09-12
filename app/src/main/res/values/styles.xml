@@ -79,4 +79,17 @@
         <item name="android:textSize">8sp</item>
     </style>
 
+    <style name="TextAppearance.ContentTitle" parent="TextAppearance.Headline6">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.BodyTitle" parent="TextAppearance.Subtitle1">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ToolbarStyle" parent="Widget.AppCompat.ActionBar">
+        <item name="android:textColorPrimary">@color/primaryTextColor</item>
+        <item name="android:textColorSecondary">@color/primaryTextColor</item>
+    </style>
+
 </resources>

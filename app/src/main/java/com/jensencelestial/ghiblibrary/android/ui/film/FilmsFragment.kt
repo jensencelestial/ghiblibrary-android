@@ -9,7 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.jensencelestial.ghiblibrary.android.data.model.Film
 import com.jensencelestial.ghiblibrary.android.databinding.FragmentFilmsBinding
 import com.jensencelestial.ghiblibrary.android.ui.UIState
@@ -26,13 +25,8 @@ class FilmsFragment : Fragment() {
     private var _binding: FragmentFilmsBinding? = null
     private val binding get() = _binding!!
 
-    //save our FastAdapter
     private lateinit var fastAdapter: FastAdapter<FilmItem>
-
-    //save our FastAdapter
     private lateinit var filmAdapter: ItemAdapter<FilmItem>
-
-    private lateinit var rvFilms: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -53,11 +47,11 @@ class FilmsFragment : Fragment() {
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        initObservers()
         initViewEvents()
+        initObservers()
     }
 
     private fun initViewEvents() {

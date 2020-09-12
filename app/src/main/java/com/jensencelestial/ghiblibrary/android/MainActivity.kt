@@ -2,39 +2,55 @@ package com.jensencelestial.ghiblibrary.android
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.jensencelestial.ghiblibrary.android.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
+    private var _binding: ActivityMainBinding? = null
+    private val binding get() = _binding!!
+
     private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        _binding = ActivityMainBinding.inflate(layoutInflater)
 
-        setSupportActionBar(findViewById(R.id.tlbrHome))
+        setSupportActionBar(binding.appBarHome.tlbrHome)
 
-        navController = findNavController(R.id.nav_host_fragment)
-        val appBarConfiguration = AppBarConfiguration(navController.graph)
-        findViewById<Toolbar>(R.id.tlbrHome)
-            .setupWithNavController(navController, appBarConfiguration)
-        findViewById<BottomNavigationView>(R.id.btmnvHome).setupWithNavController(navController)
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navController = navHostFragment.navController
+        val appBarConfiguration =
+            AppBarConfiguration(
+                setOf(
+                    R.id.filmsFragment,
+                    R.id.locationsFragment,
+                    R.id.peopleFragment,
+                    R.id.speciesFragment,
+                ),
+                binding.drwLytHome
+            )
+        binding.navVwHome.setupWithNavController(navController)
+        binding.appBarHome.tlbrHome.setupWithNavController(navController, appBarConfiguration)
 
         initEvents()
+
+        setContentView(binding.root)
     }
 
     private fun initEvents() {
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             title = when (destination.id) {
                 R.id.filmsFragment -> getString(R.string.films_pascal)
-                R.id.moreFragment -> getString(R.string.more_pascal)
+                R.id.locationsFragment -> getString(R.string.locations_pascal)
+                R.id.peopleFragment -> getString(R.string.people_pascal)
+                R.id.speciesFragment -> getString(R.string.species_pascal)
                 else -> ""
             }
         }
