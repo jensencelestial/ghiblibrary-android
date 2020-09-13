@@ -4,10 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.jensencelestial.ghiblibrary.android.BuildConfig
 import com.jensencelestial.ghiblibrary.android.data.db.AppDatabase
-import com.jensencelestial.ghiblibrary.android.data.network.FilmService
-import com.jensencelestial.ghiblibrary.android.data.network.LocationService
-import com.jensencelestial.ghiblibrary.android.data.network.PersonService
-import com.jensencelestial.ghiblibrary.android.data.network.SpeciesService
+import com.jensencelestial.ghiblibrary.android.data.network.*
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -49,6 +46,10 @@ class ApplicationModule {
     @Provides
     @Singleton
     fun provideSpeciesDao(appDatabase: AppDatabase) = appDatabase.speciesDao()
+
+    @Provides
+    @Singleton
+    fun provideVehicleDao(appDatabase: AppDatabase) = appDatabase.vehicleDao()
 
     @Provides
     @Singleton
@@ -97,4 +98,8 @@ class ApplicationModule {
     @Provides
     @Singleton
     fun provideSpeciesService(retrofit: Retrofit) = retrofit.create(SpeciesService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideVehicleService(retrofit: Retrofit) = retrofit.create(VehicleService::class.java)
 }

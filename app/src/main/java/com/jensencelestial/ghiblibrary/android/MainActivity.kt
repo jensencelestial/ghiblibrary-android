@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
                     R.id.locationsFragment,
                     R.id.peopleFragment,
                     R.id.speciesFragment,
+                    R.id.vehiclesFragment,
                 ),
                 binding.drwLytHome
             )
@@ -51,6 +52,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.locationsFragment -> getString(R.string.locations_pascal)
                 R.id.peopleFragment -> getString(R.string.people_pascal)
                 R.id.speciesFragment -> getString(R.string.species_pascal)
+                R.id.vehiclesFragment -> getString(R.string.vehicles_pascal)
                 else -> ""
             }
         }

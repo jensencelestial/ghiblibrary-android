@@ -9,7 +9,7 @@
     android:paddingRight="16dp">
 
     <TextView
-        android:id="@+id/tvFilmTitle"
+        android:id="@+id/tvName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.ContentTitle"
@@ -18,61 +18,53 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@mipmap/ic_launcher"
-        tools:text="Film title" />
-
-    <include
-        android:id="@+id/lblYearReleased"
-        layout="@layout/label_year_released"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvFilmTitle" />
-
-    <TextView
-        android:id="@+id/tvDirector"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constrainedWidth="true"
-        app:layout_constraintEnd_toStartOf="@+id/guidelineThumbnail"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblYearReleased"
-        tools:text="Hayao Miyazaki" />
-
-    <TextView
-        android:id="@+id/tvProducer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/guidelineThumbnail"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDirector"
-        tools:text="Isao Takahata" />
+        tools:text="Name" />
 
     <ImageView
-        android:id="@+id/ivRTScore"
+        android:id="@+id/ivClass"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginTop="16dp"
-        android:contentDescription="@string/rotten_tomatoes_score_pascal"
+        android:contentDescription="@string/class_pascal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvProducer"
+        app:layout_constraintTop_toBottomOf="@+id/tvName"
         app:srcCompat="@drawable/ic_tomato" />
 
     <TextView
-        android:id="@+id/tvRTScore"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvClass"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:textAppearance="@style/TextAppearance.Subtitle1"
-        app:layout_constraintBottom_toBottomOf="@+id/ivRTScore"
-        app:layout_constraintStart_toEndOf="@+id/ivRTScore"
-        app:layout_constraintTop_toTopOf="@+id/ivRTScore"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineThumbnail"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/ivClass"
+        app:layout_constraintTop_toTopOf="@+id/ivClass"
         app:layout_constraintVertical_bias="0.0"
-        tools:text="95" />
+        tools:text="Airship" />
+
+    <ImageView
+        android:id="@+id/ivLength"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/length_pascal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvClass"
+        app:srcCompat="@drawable/ic_tomato" />
+
+    <TextView
+        android:id="@+id/tvLength"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textAppearance="@style/TextAppearance.Subtitle1"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineThumbnail"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/ivLength"
+        app:layout_constraintTop_toTopOf="@+id/ivLength"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="1000" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineThumbnail"
@@ -85,9 +77,9 @@
         android:id="@+id/ivThumbnail"
         android:layout_width="126dp"
         android:layout_height="176dp"
-        android:contentDescription="@string/film_image_pascal"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/film_image_pascal"
+        android:contentDescription="@string/vehicle_image_pascal"
+        android:scaleType="centerCrop"
+        android:tooltipText="@string/vehicle_image_pascal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -96,7 +88,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="ivRTScore,ivThumbnail"
+        app:constraint_referenced_ids="ivLength,ivThumbnail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -120,6 +112,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDescriptionLabel"
-        tools:text="The orphan Sheeta inherited a mysterious crystal that links her to the mythical sky-kingdom of Laputa. With the help of resourceful Pazu and a rollicking band of sky pirates, she makes her way to the ruins of the once-great civilization. Sheeta and Pazu must outwit the evil Muska, who plans to use Laputa's science to make himself ruler of the world." />
+        tools:text="A military airship utilized by the government to access Laputa." />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

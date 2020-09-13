@@ -22,7 +22,6 @@ class LocationRepository @Inject constructor(
 
     suspend fun getLocations(): RepResult<List<Location>> {
         return try {
-            // Get Locations from API
             val remoteLocationsResponse: Response<List<LocationResponse>> =
                 locationService.getLocations()
 
@@ -32,13 +31,9 @@ class LocationRepository @Inject constructor(
 
                 locationsToSave = attachImageUrls(*locationsToSave.toTypedArray())
 
-                // Save Locations fetched from API to DB
                 locationDao.insertLocations(locationsToSave)
 
-                // Get all Locations from the updated DB
-                val localLocations: List<Location> = locationDao.getAllLocations()
-
-                RepResult.Success(result = localLocations)
+                RepResult.Success(result = locationDao.getAllLocations())
             } else {
                 RepResult.Error<Nothing>()
             }
@@ -49,9 +44,7 @@ class LocationRepository @Inject constructor(
                 is SocketTimeoutException, is IOException -> {
                     // For timeout errors, get Locations from DB.
                     return try {
-                        val localLocations: List<Location> = locationDao.getAllLocations()
-
-                        RepResult.Success(result = localLocations)
+                        RepResult.Success(result = locationDao.getAllLocations())
                     } catch (dbe: Exception) {
                         Timber.e(e, "Get Locations from DB failed.")
 
@@ -65,7 +58,6 @@ class LocationRepository @Inject constructor(
 
     suspend fun getLocation(locationId: String): RepResult<Location> {
         return try {
-            // Get Location from API
             val remoteLocationResponse: Response<LocationResponse> =
                 locationService.getLocation(locationId)
 
@@ -75,14 +67,10 @@ class LocationRepository @Inject constructor(
                 if (locationToSave != null) {
                     locationToSave = attachImageUrls(locationToSave)[0]
 
-                    // Save Location fetched from API to DB
                     locationDao.insertLocation(locationToSave)
                 }
 
-                // Get Location from the updated DB
-                val localLocation: Location = locationDao.getLocation(locationId)
-
-                RepResult.Success(result = localLocation)
+                RepResult.Success(result = locationDao.getLocation(locationId))
             } else {
                 RepResult.Error<Nothing>()
             }
@@ -93,9 +81,7 @@ class LocationRepository @Inject constructor(
                 is SocketTimeoutException, is IOException -> {
                     // For timeout errors, get Location from DB.
                     return try {
-                        val localLocation: Location = locationDao.getLocation(locationId)
-
-                        RepResult.Success(result = localLocation)
+                        RepResult.Success(result = locationDao.getLocation(locationId))
                     } catch (dbe: Exception) {
                         Timber.e(e, "Get Location from DB failed.")
 

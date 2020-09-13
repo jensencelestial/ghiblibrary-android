@@ -22,7 +22,6 @@ class FilmRepository @Inject constructor(
 
     suspend fun getFilms(): RepResult<List<Film>> {
         return try {
-            // Get Films from API
             val remoteFilmsResponse: Response<List<FilmResponse>> = filmService.getFilms()
 
             if (remoteFilmsResponse.isSuccessful) {
@@ -31,13 +30,9 @@ class FilmRepository @Inject constructor(
 
                 filmsToSave = attachImageUrls(*filmsToSave.toTypedArray())
 
-                // Save Films fetched from API to DB
                 filmDao.insertFilms(filmsToSave)
 
-                // Get all Films from the updated DB
-                val localFilms: List<Film> = filmDao.getAllFilms()
-
-                RepResult.Success(result = localFilms)
+                RepResult.Success(result = filmDao.getAllFilms())
             } else {
                 RepResult.Error<Nothing>()
             }
@@ -48,9 +43,7 @@ class FilmRepository @Inject constructor(
                 is SocketTimeoutException, is IOException -> {
                     // For timeout errors, get Films from DB.
                     return try {
-                        val localFilms: List<Film> = filmDao.getAllFilms()
-
-                        RepResult.Success(result = localFilms)
+                        RepResult.Success(result = filmDao.getAllFilms())
                     } catch (dbe: Exception) {
                         Timber.e(e, "Get Films from DB failed.")
 
@@ -64,7 +57,6 @@ class FilmRepository @Inject constructor(
 
     suspend fun getFilm(filmId: String): RepResult<Film> {
         return try {
-            // Get Film from API
             val remoteFilmResponse: Response<FilmResponse> = filmService.getFilm(filmId)
 
             if (remoteFilmResponse.isSuccessful) {
@@ -73,14 +65,10 @@ class FilmRepository @Inject constructor(
                 if (filmToSave != null) {
                     filmToSave = attachImageUrls(filmToSave)[0]
 
-                    // Save Films fetched from API to DB
                     filmDao.insertFilm(filmToSave)
                 }
 
-                // Get all Films from the updated DB
-                val localFilms: Film = filmDao.getFilm(filmId)
-
-                RepResult.Success(result = localFilms)
+                RepResult.Success(result = filmDao.getFilm(filmId))
             } else {
                 RepResult.Error<Nothing>()
             }
@@ -89,11 +77,9 @@ class FilmRepository @Inject constructor(
 
             when (e) {
                 is SocketTimeoutException, is IOException -> {
-                    // For timeout errors, get Films from DB.
+                    // For timeout errors, get Film from DB.
                     return try {
-                        val localFilm: Film = filmDao.getFilm(filmId)
-
-                        RepResult.Success(result = localFilm)
+                        RepResult.Success(result = filmDao.getFilm(filmId))
                     } catch (dbe: Exception) {
                         Timber.e(e, "Get Films from DB failed.")
 

@@ -22,7 +22,6 @@ class PersonRepository @Inject constructor(
 
     suspend fun getPeople(): RepResult<List<Person>> {
         return try {
-            // Get People from API
             val remotePersonResponse: Response<List<PersonResponse>> = personService.getPeople()
 
             if (remotePersonResponse.isSuccessful) {
@@ -31,13 +30,9 @@ class PersonRepository @Inject constructor(
 
                 peopleToSave = attachImageUrls(*peopleToSave.toTypedArray())
 
-                // Save People fetched from API to DB
                 peopleDao.insertPeople(peopleToSave)
 
-                // Get all People from the updated DB
-                val localPeople: List<Person> = peopleDao.getAllPeople()
-
-                RepResult.Success(result = localPeople)
+                RepResult.Success(result = peopleDao.getAllPeople())
             } else {
                 RepResult.Error<Nothing>()
             }
@@ -48,9 +43,7 @@ class PersonRepository @Inject constructor(
                 is SocketTimeoutException, is IOException -> {
                     // For timeout errors, get People from DB.
                     return try {
-                        val localPeople: List<Person> = peopleDao.getAllPeople()
-
-                        RepResult.Success(result = localPeople)
+                        RepResult.Success(result = peopleDao.getAllPeople())
                     } catch (dbe: Exception) {
                         Timber.e(e, "Get People from DB failed.")
 
@@ -64,7 +57,6 @@ class PersonRepository @Inject constructor(
 
     suspend fun getPerson(personId: String): RepResult<Person> {
         return try {
-            // Get Person from API
             val remotePersonResponse: Response<PersonResponse> = personService.getPerson(personId)
 
             if (remotePersonResponse.isSuccessful) {
@@ -73,14 +65,10 @@ class PersonRepository @Inject constructor(
                 if (personToSave != null) {
                     personToSave = attachImageUrls(personToSave)[0]
 
-                    // Save Person fetched from API to DB
                     peopleDao.insertPerson(personToSave)
                 }
 
-                // Get Person from the updated DB
-                val localPerson: Person = peopleDao.getPerson(personId)
-
-                RepResult.Success(result = localPerson)
+                RepResult.Success(result = peopleDao.getPerson(personId))
             } else {
                 RepResult.Error<Nothing>()
             }
@@ -91,9 +79,7 @@ class PersonRepository @Inject constructor(
                 is SocketTimeoutException, is IOException -> {
                     // For timeout errors, get Person from DB.
                     return try {
-                        val localPerson: Person = peopleDao.getPerson(personId)
-
-                        RepResult.Success(result = localPerson)
+                        RepResult.Success(result = peopleDao.getPerson(personId))
                     } catch (dbe: Exception) {
                         Timber.e(e, "Get Person from DB failed.")
 

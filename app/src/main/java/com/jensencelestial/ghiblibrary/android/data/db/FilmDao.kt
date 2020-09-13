@@ -14,10 +14,10 @@ interface FilmDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertFilms(films: List<Film>)
 
-    @Query("SELECT * FROM films")
+    @Query("SELECT * FROM film")
     suspend fun getAllFilms(): List<Film>
 
-    @Query("SELECT * FROM films WHERE id = :filmId")
+    @Query("SELECT * FROM film WHERE id = :filmId")
     suspend fun getFilm(filmId: String): Film
 
 }

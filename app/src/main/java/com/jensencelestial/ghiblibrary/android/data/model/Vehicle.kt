@@ -4,24 +4,19 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "film")
-data class Film(
+@Entity(tableName = "vehicle")
+data class Vehicle(
     @PrimaryKey
     val id: String,
 
-    val title: String,
+    val name: String,
 
     val description: String,
 
-    val director: String,
+    @ColumnInfo(name = "vehicle_class")
+    val vehicleClass: String,
 
-    val producer: String,
-
-    @ColumnInfo(name = "release_date")
-    val releaseDate: String,
-
-    @ColumnInfo(name = "rt_score")
-    val rtScore: String,
+    val length: String? = null,
     
     var imageUrl: String? = null,
 )

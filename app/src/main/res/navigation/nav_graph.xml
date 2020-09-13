@@ -76,4 +76,22 @@
             app:argType="string" />
     </fragment>
 
+    <fragment
+        android:id="@+id/vehiclesFragment"
+        android:name="com.jensencelestial.ghiblibrary.android.ui.vehicle.VehiclesFragment"
+        android:label="@string/vehicles_pascal" >
+        <action
+            android:id="@+id/action_vehiclesFragment_to_vehicleFragment"
+            app:destination="@id/vehicleFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/vehicleFragment"
+        android:name="com.jensencelestial.ghiblibrary.android.ui.vehicle.VehicleFragment"
+        android:label="" >
+        <argument
+            android:name="vehicleId"
+            app:argType="string" />
+    </fragment>
+
 </navigation>
