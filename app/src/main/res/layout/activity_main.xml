@@ -19,7 +19,7 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/layout_navigation_drawer_home_header"
-        app:itemTextAppearance="@style/TextAppearance.Subtitle1"
+        app:itemTextAppearance="@style/TextAppearance.BodyTitle"
         app:menu="@menu/menu_home_drawer_nav" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

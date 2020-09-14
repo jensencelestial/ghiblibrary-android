@@ -1,21 +1,35 @@
 <resources>
     <string name="app_name">GhibLibrary</string>
 
+    <string name="github_link">https://github.com/jensencelestial/ghiblibrary-android</string>
+    <string name="good_ware_flaticon_link">https://www.flaticon.com/authors/good-ware</string>
+
+    <!-- Preference Key -->
+    <string name="github_about_preference_key">github_about_preference_key</string>
+    <string name="icons_about_preference_key">icons_about_preference_key</string>
+    <string name="open_source_licenses_about_preference_key">open_source_licenses_about_preference_key</string>
+    <string name="version_about_preference_key">version_about_preference_key</string>
+
+    <string name="about_pascal">About</string>
     <string name="age_pascal">Age</string>
     <string name="class_pascal">Class</string>
     <string name="climate_pascal">Climate</string>
+    <string name="description_pascal">Description</string>
     <string name="director_pascal">Director</string>
     <string name="eye_color_pascal">Eye Color</string>
     <string name="eye_colors_pascal">Eye Colors</string>
     <string name="film_image_pascal">Film Image</string>
     <string name="films_pascal">Films</string>
     <string name="gender_pascal">Gender</string>
+    <string name="github_pascal">Github</string>
+    <string name="icons_pascal">Icons</string>
     <string name="hair_color_pascal">Hair Color</string>
     <string name="hair_colors_pascal">Hair Colors</string>
     <string name="length_pascal">Length</string>
     <string name="location_image_pascal">Location Image</string>
     <string name="locations_pascal">Locations</string>
     <string name="n_a">N/A</string>
+    <string name="open_source_licenses_pascal">Open Source Licenses</string>
     <string name="people_pascal">People</string>
     <string name="person_pascal">Person</string>
     <string name="person_image_pascal">Person Image</string>
@@ -27,6 +41,8 @@
     <string name="terrain_pascal">Terrain</string>
     <string name="vehicle_image_pascal">Vehicle Image</string>
     <string name="vehicles_pascal">Vehicles</string>
-    <string name="description_pascal">Description</string>
+    <string name="version_pascal">Version</string>
+
+    <string name="icons_special_thanks_good_ware_flaticon">Icons made by Good Ware from www.flaticon.com</string>
 
 </resources>

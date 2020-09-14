@@ -79,6 +79,11 @@
         <item name="android:textSize">8sp</item>
     </style>
 
+    <style name="TextAppearance.DrawerTitle" parent="TextAppearance.Headline5">
+        <item name="android:textColor">@color/md_white_1000</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="TextAppearance.ContentTitle" parent="TextAppearance.Headline6">
         <item name="android:textStyle">bold</item>
     </style>

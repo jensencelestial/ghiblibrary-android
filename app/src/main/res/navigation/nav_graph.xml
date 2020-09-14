@@ -94,4 +94,9 @@
             app:argType="string" />
     </fragment>
 
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.jensencelestial.ghiblibrary.android.ui.about.AboutFragment"
+        android:label="@string/about_pascal" />
+
 </navigation>

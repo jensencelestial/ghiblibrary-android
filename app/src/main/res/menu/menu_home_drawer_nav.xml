@@ -26,4 +26,13 @@
         android:icon="@drawable/ic_vehicle"
         android:title="@string/vehicles_pascal" />
 
+    <group android:id="@+id/groupBottom">
+
+        <item
+            android:id="@+id/aboutFragment"
+            android:icon="@drawable/ic_about"
+            android:title="@string/about_pascal" />
+
+    </group>
+
 </menu>

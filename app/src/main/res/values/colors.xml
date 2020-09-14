@@ -7,9 +7,12 @@
     <color name="secondaryLightColor">#e1b07f</color>
     <color name="secondaryDarkColor">#7b5528</color>
     <color name="primaryTextColor">#000000</color>
-    <color name="secondaryTextColor">#ffffff</color>
+<!--    <color name="secondaryTextColor">#ffffff</color>-->
+    <color name="secondaryTextColor">#8A000000</color>
 
     <color name="backgroundLight">@color/md_grey_50</color>
+
+    <color name="md_white_1000">#FFFFFFFF</color>
 
     <color name="md_grey_50">#FAFAFA</color>
 

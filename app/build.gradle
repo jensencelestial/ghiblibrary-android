@@ -6,6 +6,7 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 apply plugin: 'dagger.hilt.android.plugin'
 apply plugin: 'androidx.navigation.safeargs.kotlin'
+apply plugin: 'com.mikepenz.aboutlibraries.plugin'
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
@@ -75,6 +76,7 @@ dependencies {
     implementation "androidx.core:core-ktx:$androidCoreKtxVersion"
     implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
     implementation "androidx.legacy:legacy-support-v4:$androidXLegacySupport"
+    implementation "androidx.preference:preference:$androidXPreference"
     implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
     implementation "androidx.room:room-runtime:$roomVersion"
     implementation "androidx.security:security-crypto:$androidSecurityVersion"
@@ -177,4 +179,8 @@ dependencies {
     // FastAdapter
     implementation "com.mikepenz:fastadapter:$fastAdapterVersion"
     implementation "com.mikepenz:fastadapter-extensions-binding:$fastAdapterVersion"
+
+    // About Librarise
+    implementation "com.mikepenz:aboutlibraries-core:$aboutLibrariesVersion"
+    implementation "com.mikepenz:aboutlibraries:$aboutLibrariesVersion"
 }
