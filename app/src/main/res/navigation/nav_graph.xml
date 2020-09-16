@@ -24,7 +24,7 @@
 
     <fragment
         android:id="@+id/peopleFragment"
-        android:name="com.jensencelestial.ghiblibrary.android.ui.people.PeopleFragment"
+        android:name="com.jensencelestial.ghiblibrary.android.ui.person.PeopleFragment"
         android:label="@string/people_pascal">
         <action
             android:id="@+id/action_peopleFragment_to_personFragment"
@@ -33,7 +33,7 @@
 
     <fragment
         android:id="@+id/personFragment"
-        android:name="com.jensencelestial.ghiblibrary.android.ui.people.PersonFragment"
+        android:name="com.jensencelestial.ghiblibrary.android.ui.person.PersonFragment"
         android:label="">
         <argument
             android:name="personId"

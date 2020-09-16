@@ -118,7 +118,7 @@
         android:layout_width="126dp"
         android:layout_height="176dp"
         android:contentDescription="@string/person_image_pascal"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
         android:tooltipText="@string/person_image_pascal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

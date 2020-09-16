@@ -2,7 +2,7 @@ package com.jensencelestial.ghiblibrary.android.ui.species
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import coil.api.load
+import coil.load
 import coil.transform.RoundedCornersTransformation
 import com.jensencelestial.ghiblibrary.android.R
 import com.jensencelestial.ghiblibrary.android.data.model.Species
@@ -16,8 +16,11 @@ class SpeciesItem(val species: Species) : AbstractBindingItem<AdapterSpeciesList
 
     override fun bindView(binding: AdapterSpeciesListItemBinding, payloads: List<Any>) {
         binding.ivThumbnail.load(species.imageUrl) {
+            placeholder(R.drawable.shape_image_fallback)
+            fallback(R.drawable.shape_image_fallback)
+            error(R.drawable.shape_image_fallback)
             crossfade(true)
-            transformations(RoundedCornersTransformation())
+            transformations(RoundedCornersTransformation(4f))
         }
 
         binding.tvSpeciesName.text = species.name

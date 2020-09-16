@@ -8,7 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
-import coil.api.load
+import coil.load
+import coil.transform.RoundedCornersTransformation
 import com.jensencelestial.ghiblibrary.android.R
 import com.jensencelestial.ghiblibrary.android.data.model.Vehicle
 import com.jensencelestial.ghiblibrary.android.databinding.FragmentVehicleBinding
@@ -62,7 +63,11 @@ class VehicleFragment : Fragment() {
         binding.lytVehicle.tvLength.text = vehicle.length ?: getString(R.string.n_a)
 
         binding.lytVehicle.ivThumbnail.load(vehicle.imageUrl) {
+            placeholder(R.drawable.shape_image_fallback)
+            fallback(R.drawable.shape_image_fallback)
+            error(R.drawable.shape_image_fallback)
             crossfade(true)
+            transformations(RoundedCornersTransformation(4f))
         }
 
         binding.lytVehicle.tvDescription.text = vehicle.description

@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
-import coil.api.load
+import coil.load
+import coil.transform.RoundedCornersTransformation
+import com.jensencelestial.ghiblibrary.android.R
 import com.jensencelestial.ghiblibrary.android.data.model.Location
 import com.jensencelestial.ghiblibrary.android.databinding.FragmentLocationBinding
 import com.jensencelestial.ghiblibrary.android.ui.UIState
@@ -63,7 +65,11 @@ class LocationFragment : Fragment() {
         binding.lytPerson.tvSurfaceWater.text = location.surfaceWater
 
         binding.lytPerson.ivThumbnail.load(location.imageUrl) {
+            placeholder(R.drawable.shape_image_fallback)
+            fallback(R.drawable.shape_image_fallback)
+            error(R.drawable.shape_image_fallback)
             crossfade(true)
+            transformations(RoundedCornersTransformation(4f))
         }
     }
 

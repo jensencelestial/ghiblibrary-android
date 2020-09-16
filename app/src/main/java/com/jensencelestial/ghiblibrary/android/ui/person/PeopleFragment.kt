@@ -1,4 +1,4 @@
-package com.jensencelestial.ghiblibrary.android.ui.people
+package com.jensencelestial.ghiblibrary.android.ui.person
 
 import android.os.Bundle
 import android.view.LayoutInflater

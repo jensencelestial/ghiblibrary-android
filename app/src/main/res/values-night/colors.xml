@@ -12,6 +12,4 @@
 
     <color name="backgroundLight">@color/md_grey_50</color>
 
-    <color name="md_grey_50">#FAFAFA</color>
-
 </resources>

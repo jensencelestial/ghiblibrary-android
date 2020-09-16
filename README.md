@@ -13,6 +13,7 @@ Libraries Used
 * [Retrofit][5]
 * [Timber][7]
 * [FastAdapter][9]
+* [AboutLibraries][10]
 
 ## Special Thanks
 * [janaipakos/ghibliapi][0] for the amazing API
@@ -30,3 +31,4 @@ Copyright © 2020 Under [MIT License](https://github.com/jensencelestial/ghiblib
 [7]: https://github.com/JakeWharton/timber
 [8]: https://github.com/material-components/material-components-android
 [9]: https://github.com/mazipan/ghibli-fans
+[10]: https://github.com/mikepenz/AboutLibraries

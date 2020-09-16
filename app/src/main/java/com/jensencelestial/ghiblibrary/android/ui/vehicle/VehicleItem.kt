@@ -2,7 +2,7 @@ package com.jensencelestial.ghiblibrary.android.ui.vehicle
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import coil.api.load
+import coil.load
 import coil.transform.RoundedCornersTransformation
 import com.jensencelestial.ghiblibrary.android.R
 import com.jensencelestial.ghiblibrary.android.data.model.Vehicle
@@ -16,8 +16,11 @@ class VehicleItem(val vehicle: Vehicle) : AbstractBindingItem<AdapterVehicleList
 
     override fun bindView(binding: AdapterVehicleListItemBinding, payloads: List<Any>) {
         binding.ivThumbnail.load(vehicle.imageUrl) {
+            placeholder(R.drawable.shape_image_fallback)
+            fallback(R.drawable.shape_image_fallback)
+            error(R.drawable.shape_image_fallback)
             crossfade(true)
-            transformations(RoundedCornersTransformation())
+            transformations(RoundedCornersTransformation(4f))
         }
 
         binding.tvVehicleName.text = vehicle.name

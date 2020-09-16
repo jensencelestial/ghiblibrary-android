@@ -1,4 +1,4 @@
-package com.jensencelestial.ghiblibrary.android.ui.people
+package com.jensencelestial.ghiblibrary.android.ui.person
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
-import coil.api.load
+import coil.load
+import coil.transform.RoundedCornersTransformation
+import com.jensencelestial.ghiblibrary.android.R
 import com.jensencelestial.ghiblibrary.android.data.model.Person
 import com.jensencelestial.ghiblibrary.android.databinding.FragmentPersonBinding
 import com.jensencelestial.ghiblibrary.android.ui.UIState
@@ -65,7 +67,10 @@ class PersonFragment : Fragment() {
         binding.lytPerson.tvHairColor.text = person.hairColor
 
         binding.lytPerson.ivThumbnail.load(person.imageUrl) {
+            fallback(R.drawable.shape_image_fallback)
+            error(R.drawable.shape_image_fallback)
             crossfade(true)
+            transformations(RoundedCornersTransformation(4f))
         }
     }
 
