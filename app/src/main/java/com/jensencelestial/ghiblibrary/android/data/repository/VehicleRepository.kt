@@ -22,7 +22,8 @@ class VehicleRepository @Inject constructor(
 
     suspend fun getVehicles(): RepResult<List<Vehicle>> {
         return try {
-            val remoteVehiclesResponse: Response<List<VehicleResponse>> = vehicleService.getVehicles()
+            val remoteVehiclesResponse: Response<List<VehicleResponse>> =
+                vehicleService.getVehicles()
 
             if (remoteVehiclesResponse.isSuccessful) {
                 var vehiclesToSave: List<Vehicle> =
@@ -57,7 +58,8 @@ class VehicleRepository @Inject constructor(
 
     suspend fun getVehicle(vehicleId: String): RepResult<Vehicle> {
         return try {
-            val remoteVehicleResponse: Response<VehicleResponse> = vehicleService.getVehicle(vehicleId)
+            val remoteVehicleResponse: Response<VehicleResponse> =
+                vehicleService.getVehicle(vehicleId)
 
             if (remoteVehicleResponse.isSuccessful) {
                 var vehicleToSave: Vehicle? = remoteVehicleResponse.body()?.toEntity()

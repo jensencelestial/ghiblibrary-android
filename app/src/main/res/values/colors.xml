@@ -10,6 +10,8 @@
 <!--    <color name="secondaryTextColor">#ffffff</color>-->
     <color name="secondaryTextColor">#8A000000</color>
 
+    <color name="backgroundSplash">@color/primaryColor</color>
+
     <color name="backgroundLight">@color/md_grey_50</color>
 
     <color name="imageBackground">@color/md_grey_400</color>

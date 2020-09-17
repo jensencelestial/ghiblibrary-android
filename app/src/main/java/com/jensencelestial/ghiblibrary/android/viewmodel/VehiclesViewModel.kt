@@ -27,7 +27,8 @@ class VehiclesViewModel @ViewModelInject constructor(
         viewModelScope.launch {
             _vehicles.value = UIState.loading()
 
-            when (val getVehiclesResult: RepResult<List<Vehicle>> = vehicleRepository.getVehicles()) {
+            when (val getVehiclesResult: RepResult<List<Vehicle>> =
+                vehicleRepository.getVehicles()) {
                 is RepResult.Success -> {
                     _vehicles.value = UIState.success(getVehiclesResult.result)
                 }
