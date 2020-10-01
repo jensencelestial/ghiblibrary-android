@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Preference
+        android:key="@string/version_about_preference_key"
+        android:title="@string/version_pascal"
+        android:summary="?android:attr/versionName"
+        app:iconSpaceReserved="false"/>
+
+    <Preference
+        android:key="@string/github_about_preference_key"
+        android:title="@string/github_pascal"
+        android:summary="@string/github_link"
+        app:iconSpaceReserved="false"/>
+
+    <Preference
+        android:key="@string/icons_about_preference_key"
+        android:title="@string/icons_pascal"
+        android:summary="@string/icons_special_thanks_good_ware_flaticon"
+        app:iconSpaceReserved="false"/>
+
+    <Preference
+        android:key="@string/open_source_licenses_about_preference_key"
+        android:title="@string/open_source_licenses_pascal"
+        app:iconSpaceReserved="false"/>
+
+</PreferenceScreen>

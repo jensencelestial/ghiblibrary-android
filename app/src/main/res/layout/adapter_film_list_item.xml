@@ -12,9 +12,7 @@
         android:layout_height="56dp"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="16dp"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        android:scaleType="centerCrop"
+        android:paddingVertical="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -27,34 +25,24 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
         android:ellipsize="end"
         android:maxLines="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/ivThumbnail"
-        app:layout_constraintRight_toLeftOf="@+id/tvYearReleased"
+        app:layout_constraintRight_toLeftOf="@+id/lblYearReleased"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Film title" />
 
-    <TextView
-        android:id="@+id/tvYearReleased"
-        style="@style/TextAppearance.Subtitle2"
+    <include
+        android:id="@+id/lblYearReleased"
+        layout="@layout/label_year_released"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="8dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/secondaryLightColor"
-        android:maxLines="1"
-        android:paddingLeft="3dp"
-        android:paddingTop="1dp"
-        android:paddingRight="3dp"
-        android:paddingBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="1990" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

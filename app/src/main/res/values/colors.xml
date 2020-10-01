@@ -6,11 +6,27 @@
     <color name="secondaryColor">#ad8152</color>
     <color name="secondaryLightColor">#e1b07f</color>
     <color name="secondaryDarkColor">#7b5528</color>
-    <color name="primaryTextColor">#ffffff</color>
-    <color name="secondaryTextColor">#000000</color>
+    <color name="primaryTextColor">#000000</color>
+<!--    <color name="secondaryTextColor">#ffffff</color>-->
+    <color name="secondaryTextColor">#8A000000</color>
+
+    <color name="backgroundSplash">@color/primaryColor</color>
 
     <color name="backgroundLight">@color/md_grey_50</color>
 
+    <color name="imageBackground">@color/md_grey_400</color>
+
+    <color name="md_white_1000">#FFFFFFFF</color>
+
+    <color name="md_grey">#9E9E9E</color>
     <color name="md_grey_50">#FAFAFA</color>
+    <color name="md_grey_200">#EEEEEE</color>
+    <color name="md_grey_300">#E0E0E0</color>
+    <color name="md_grey_400">#BDBDBD</color>
+    <color name="md_grey_500">#9E9E9E</color>
+    <color name="md_grey_600">#757575</color>
+    <color name="md_grey_700">#616161</color>
+    <color name="md_grey_800">#424242</color>
+    <color name="md_grey_900">#212121</color>
 
 </resources>

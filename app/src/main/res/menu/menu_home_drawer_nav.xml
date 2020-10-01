@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/filmsFragment"
+        android:icon="@drawable/ic_film"
+        android:title="@string/films_pascal" />
+
+    <item
+        android:id="@+id/peopleFragment"
+        android:icon="@drawable/ic_people"
+        android:title="@string/people_pascal" />
+
+    <item
+        android:id="@+id/locationsFragment"
+        android:icon="@drawable/ic_location"
+        android:title="@string/locations_pascal" />
+
+    <item
+        android:id="@+id/speciesFragment"
+        android:icon="@drawable/ic_species"
+        android:title="@string/species_pascal" />
+
+    <item
+        android:id="@+id/vehiclesFragment"
+        android:icon="@drawable/ic_vehicle"
+        android:title="@string/vehicles_pascal" />
+
+    <group android:id="@+id/groupBottom">
+
+        <item
+            android:id="@+id/aboutFragment"
+            android:icon="@drawable/ic_about"
+            android:title="@string/about_pascal" />
+
+    </group>
+
+</menu>

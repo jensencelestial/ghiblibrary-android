@@ -27,14 +27,12 @@ class FilmsViewModel @ViewModelInject constructor(
         viewModelScope.launch {
             _films.value = UIState.loading()
 
-            val getFilmResult: RepResult<List<Film>> = filmRepository.getFilms()
-
-            when (getFilmResult) {
+            when (val getFilmsResult: RepResult<List<Film>> = filmRepository.getFilms()) {
                 is RepResult.Success -> {
-                    _films.value = UIState.success(getFilmResult.result)
+                    _films.value = UIState.success(getFilmsResult.result)
                 }
                 is RepResult.Error<*> -> {
-                    when (getFilmResult.exception) {
+                    when (getFilmsResult.exception) {
                         is Exception -> {
                             _films.value = UIState.failure()
                         }

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp">
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.ContentTitle"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineThumbnail"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@mipmap/ic_launcher"
+        tools:text="Name" />
+
+    <ImageView
+        android:id="@+id/ivClimate"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/climate_pascal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvName"
+        app:srcCompat="@drawable/ic_climate" />
+
+    <TextView
+        android:id="@+id/tvClimate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textAppearance="@style/TextAppearance.Subtitle1"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineThumbnail"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/ivClimate"
+        app:layout_constraintTop_toTopOf="@+id/ivClimate"
+        tools:text="Continental" />
+
+    <ImageView
+        android:id="@+id/ivTerrain"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/terrain_pascal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvClimate"
+        app:srcCompat="@drawable/ic_terrain" />
+
+    <TextView
+        android:id="@+id/tvTerrain"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textAppearance="@style/TextAppearance.Subtitle1"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineThumbnail"
+        app:layout_constraintStart_toEndOf="@+id/ivTerrain"
+        app:layout_constraintTop_toTopOf="@+id/ivTerrain"
+        tools:text="Mountain" />
+
+    <ImageView
+        android:id="@+id/ivSurfaceWater"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/surface_water_pascal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTerrain"
+        app:srcCompat="@drawable/ic_surface_water" />
+
+    <TextView
+        android:id="@+id/tvSurfaceWater"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textAppearance="@style/TextAppearance.Subtitle1"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineThumbnail"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/ivSurfaceWater"
+        app:layout_constraintTop_toTopOf="@+id/ivSurfaceWater"
+        tools:text="40" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineThumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="142dp" />
+
+    <ImageView
+        android:id="@+id/ivThumbnail"
+        android:layout_width="126dp"
+        android:layout_height="176dp"
+        android:contentDescription="@string/location_image_pascal"
+        android:scaleType="fitCenter"
+        android:tooltipText="@string/location_image_pascal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

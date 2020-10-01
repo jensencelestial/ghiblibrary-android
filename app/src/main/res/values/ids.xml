@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="fastadapter_film_item_id" type="id" />
+    <item name="fastadapter_location_item_id" type="id" />
+    <item name="fastadapter_person_item_id" type="id" />
+    <item name="fastadapter_species_item_id" type="id" />
+    <item name="fastadapter_vehicle_item_id" type="id" />
 </resources>

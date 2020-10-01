@@ -6,11 +6,12 @@
     <color name="secondaryColor">#ad8152</color>
     <color name="secondaryLightColor">#e1b07f</color>
     <color name="secondaryDarkColor">#7b5528</color>
-    <color name="primaryTextColor">#000000</color>
-    <color name="secondaryTextColor">#ffffff</color>
+    <color name="primaryTextColor">#ffffff</color>
+<!--    <color name="secondaryTextColor">#000000</color>-->
+    <color name="secondaryTextColor">#B3FFFFFF</color>
+
+    <color name="backgroundSplash">@color/md_grey_700</color>
 
     <color name="backgroundLight">@color/md_grey_50</color>
-
-    <color name="md_grey_50">#FAFAFA</color>
 
 </resources>
