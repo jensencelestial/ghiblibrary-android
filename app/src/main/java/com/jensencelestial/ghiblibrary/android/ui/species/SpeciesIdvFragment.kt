@@ -21,8 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class SpeciesIdvFragment : Fragment() {
     private val speciesIdvViewModel: SpeciesIdvViewModel by viewModels()
 
-    private var _binding: FragmentSpeciesIdvBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentSpeciesIdvBinding
 
     private val args: SpeciesIdvFragmentArgs by navArgs()
 
@@ -30,8 +29,8 @@ class SpeciesIdvFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentSpeciesIdvBinding.inflate(inflater, container, false)
+    ): View {
+        binding = FragmentSpeciesIdvBinding.inflate(inflater, container, false)
 
         return binding.root
     }

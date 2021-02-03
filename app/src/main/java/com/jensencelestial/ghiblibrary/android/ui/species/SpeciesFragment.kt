@@ -22,8 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class SpeciesFragment : Fragment() {
     private val speciesViewModel: SpeciesViewModel by viewModels()
 
-    private var _binding: FragmentSpeciesBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentSpeciesBinding
 
     private lateinit var fastAdapter: FastAdapter<SpeciesItem>
     private lateinit var speciesAdapter: ItemAdapter<SpeciesItem>
@@ -32,8 +31,8 @@ class SpeciesFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentSpeciesBinding.inflate(inflater, container, false)
+    ): View {
+        binding = FragmentSpeciesBinding.inflate(inflater, container, false)
         val view = binding.root
 
         speciesAdapter = ItemAdapter()
@@ -44,7 +43,7 @@ class SpeciesFragment : Fragment() {
             adapter = fastAdapter
         }
 
-        return binding.root
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -22,8 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class PeopleFragment : Fragment() {
     private val peopleViewModel: PeopleViewModel by viewModels()
 
-    private var _binding: FragmentPeopleBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentPeopleBinding
 
     private lateinit var fastAdapter: FastAdapter<PersonItem>
     private lateinit var peopleAdapter: ItemAdapter<PersonItem>
@@ -32,8 +31,8 @@ class PeopleFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentPeopleBinding.inflate(inflater, container, false)
+    ): View {
+        binding = FragmentPeopleBinding.inflate(inflater, container, false)
         val view = binding.root
 
         peopleAdapter = ItemAdapter()
@@ -44,7 +43,7 @@ class PeopleFragment : Fragment() {
             adapter = fastAdapter
         }
 
-        return binding.root
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

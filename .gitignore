@@ -59,6 +59,7 @@ captures/
 keystore/
 *.jks
 *.keystore
+keystore.properties
 
 # External native build folder generated in Android Studio 2.2 and later
 .externalNativeBuild
@@ -163,6 +164,7 @@ gradle-app.setting
 /*/build/
 /*/local.properties
 /*/out
+/*/release
 /*/*/build
 /*/*/production
 *.ipr

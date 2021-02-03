@@ -21,8 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class FilmFragment : Fragment() {
     private val filmViewModel: FilmViewModel by viewModels()
 
-    private var _binding: FragmentFilmBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentFilmBinding
 
     private val args: FilmFragmentArgs by navArgs()
 
@@ -30,8 +29,8 @@ class FilmFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentFilmBinding.inflate(inflater, container, false)
+    ): View {
+        binding = FragmentFilmBinding.inflate(inflater, container, false)
 
         return binding.root
     }

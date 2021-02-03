@@ -22,8 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class VehiclesFragment : Fragment() {
     private val vehiclesViewModel: VehiclesViewModel by viewModels()
 
-    private var _binding: FragmentVehiclesBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentVehiclesBinding
 
     private lateinit var fastAdapter: FastAdapter<VehicleItem>
     private lateinit var vehiclesAdapter: ItemAdapter<VehicleItem>
@@ -32,8 +31,8 @@ class VehiclesFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentVehiclesBinding.inflate(inflater, container, false)
+    ): View {
+        binding = FragmentVehiclesBinding.inflate(inflater, container, false)
         val view = binding.root
 
         vehiclesAdapter = ItemAdapter()
@@ -44,7 +43,7 @@ class VehiclesFragment : Fragment() {
             adapter = fastAdapter
         }
 
-        return binding.root
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

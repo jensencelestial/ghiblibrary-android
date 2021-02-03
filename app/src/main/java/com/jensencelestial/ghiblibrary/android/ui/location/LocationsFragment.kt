@@ -22,8 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class LocationsFragment : Fragment() {
     private val locationsViewModel: LocationsViewModel by viewModels()
 
-    private var _binding: FragmentLocationsBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentLocationsBinding
 
     private lateinit var fastAdapter: FastAdapter<LocationItem>
     private lateinit var locationsAdapter: ItemAdapter<LocationItem>
@@ -32,8 +31,8 @@ class LocationsFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentLocationsBinding.inflate(inflater, container, false)
+    ): View {
+        binding = FragmentLocationsBinding.inflate(inflater, container, false)
         val view = binding.root
 
         locationsAdapter = ItemAdapter()
@@ -44,7 +43,7 @@ class LocationsFragment : Fragment() {
             adapter = fastAdapter
         }
 
-        return binding.root
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

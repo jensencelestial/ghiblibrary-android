@@ -21,8 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class PersonFragment : Fragment() {
     private val personViewModel: PersonViewModel by viewModels()
 
-    private var _binding: FragmentPersonBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentPersonBinding
 
     private val args: PersonFragmentArgs by navArgs()
 
@@ -30,8 +29,8 @@ class PersonFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentPersonBinding.inflate(inflater, container, false)
+    ): View {
+        binding = FragmentPersonBinding.inflate(inflater, container, false)
 
         return binding.root
     }

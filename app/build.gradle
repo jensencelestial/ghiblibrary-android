@@ -76,7 +76,7 @@ dependencies {
     implementation "androidx.core:core-ktx:$androidCoreKtxVersion"
     implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
     implementation "androidx.legacy:legacy-support-v4:$androidXLegacySupport"
-    implementation "androidx.preference:preference:$androidXPreference"
+    implementation "androidx.preference:preference-ktx:$androidXPreference"
     implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
     implementation "androidx.room:room-runtime:$roomVersion"
     implementation "androidx.security:security-crypto:$androidSecurityVersion"
@@ -117,7 +117,7 @@ dependencies {
     // Once https://issuetracker.google.com/127986458 is fixed this can be testImplementation
     debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"
     implementation "androidx.test:core:$androidXTestCoreVersion"
-    implementation "androidx.fragment:fragment:$fragmentVersion"
+    implementation "androidx.fragment:fragment-ktx:$fragmentVersion"
 
     // AndroidX Test - Instrumented testing
     androidTestImplementation "androidx.test:core-ktx:$androidXTestCoreVersion"
@@ -180,7 +180,7 @@ dependencies {
     implementation "com.mikepenz:fastadapter:$fastAdapterVersion"
     implementation "com.mikepenz:fastadapter-extensions-binding:$fastAdapterVersion"
 
-    // About Librarise
+    // About Libraries
     implementation "com.mikepenz:aboutlibraries-core:$aboutLibrariesVersion"
     implementation "com.mikepenz:aboutlibraries:$aboutLibrariesVersion"
 }

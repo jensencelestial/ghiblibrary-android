@@ -85,21 +85,26 @@ class ApplicationModule {
 
     @Provides
     @Singleton
-    fun provideFilmsService(retrofit: Retrofit) = retrofit.create(FilmService::class.java)
+    fun provideFilmsService(retrofit: Retrofit): FilmService =
+        retrofit.create(FilmService::class.java)
 
     @Provides
     @Singleton
-    fun provideLocationService(retrofit: Retrofit) = retrofit.create(LocationService::class.java)
+    fun provideLocationService(retrofit: Retrofit): LocationService =
+        retrofit.create(LocationService::class.java)
 
     @Provides
     @Singleton
-    fun providePeopleService(retrofit: Retrofit) = retrofit.create(PersonService::class.java)
+    fun providePeopleService(retrofit: Retrofit): PersonService =
+        retrofit.create(PersonService::class.java)
 
     @Provides
     @Singleton
-    fun provideSpeciesService(retrofit: Retrofit) = retrofit.create(SpeciesService::class.java)
+    fun provideSpeciesService(retrofit: Retrofit): SpeciesService =
+        retrofit.create(SpeciesService::class.java)
 
     @Provides
     @Singleton
-    fun provideVehicleService(retrofit: Retrofit) = retrofit.create(VehicleService::class.java)
+    fun provideVehicleService(retrofit: Retrofit): VehicleService =
+        retrofit.create(VehicleService::class.java)
 }

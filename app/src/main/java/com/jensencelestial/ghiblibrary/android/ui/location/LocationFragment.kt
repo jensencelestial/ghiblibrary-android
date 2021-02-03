@@ -21,8 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class LocationFragment : Fragment() {
     private val locationViewModel: LocationViewModel by viewModels()
 
-    private var _binding: FragmentLocationBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentLocationBinding
 
     private val args: LocationFragmentArgs by navArgs()
 
@@ -30,8 +29,8 @@ class LocationFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentLocationBinding.inflate(inflater, container, false)
+    ): View {
+        binding = FragmentLocationBinding.inflate(inflater, container, false)
 
         return binding.root
     }

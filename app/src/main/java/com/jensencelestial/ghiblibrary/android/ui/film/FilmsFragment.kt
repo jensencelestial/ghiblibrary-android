@@ -22,8 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class FilmsFragment : Fragment() {
     private val filmsViewModel: FilmsViewModel by viewModels()
 
-    private var _binding: FragmentFilmsBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentFilmsBinding
 
     private lateinit var fastAdapter: FastAdapter<FilmItem>
     private lateinit var filmAdapter: ItemAdapter<FilmItem>
@@ -32,8 +31,8 @@ class FilmsFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentFilmsBinding.inflate(inflater, container, false)
+    ): View {
+        binding = FragmentFilmsBinding.inflate(inflater, container, false)
         val view = binding.root
 
         filmAdapter = ItemAdapter()
@@ -44,7 +43,7 @@ class FilmsFragment : Fragment() {
             adapter = fastAdapter
         }
 
-        return binding.root
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

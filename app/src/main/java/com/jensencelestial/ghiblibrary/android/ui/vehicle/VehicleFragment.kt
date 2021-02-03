@@ -21,8 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class VehicleFragment : Fragment() {
     private val vehicleViewModel: VehicleViewModel by viewModels()
 
-    private var _binding: FragmentVehicleBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentVehicleBinding
 
     private val args: VehicleFragmentArgs by navArgs()
 
@@ -30,8 +29,8 @@ class VehicleFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentVehicleBinding.inflate(inflater, container, false)
+    ): View {
+        binding = FragmentVehicleBinding.inflate(inflater, container, false)
 
         return binding.root
     }
