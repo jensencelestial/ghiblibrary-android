@@ -1,18 +1,23 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext.firebaseCrashlyticsGradleVersion = '2.0.0-beta04'
-    ext.googleSvcVersion = '4.3.3'
-    ext.gradleVersion = '4.0.1'
-    ext.kotlinVersion = '1.4.10'
-    ext.navigationVersion = '2.3.0'
+    ext.firebaseCrashlyticsGradleVersion = '2.7.1'
+    ext.googleSvcVersion = '4.3.8'
+    ext.gradleVersion = '7.0.0'
+    ext.kotlinVersion = '1.5.10'
+    ext.navigationVersion = '2.4.0-alpha02'
     ext.ktlintGradleVersion = '9.3.0'
-    ext.daggerHiltVersion = '2.28-alpha'
-    ext.aboutLibrariesVersion = '8.3.0'
+    ext.daggerHiltVersion = '2.37'
+    ext.aboutLibrariesVersion = '8.9.1'
 
     repositories {
         google()
-        jcenter()
+        mavenCentral()
+
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
+
     dependencies {
         classpath "com.android.tools.build:gradle:$gradleVersion"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
@@ -27,42 +32,43 @@ buildscript {
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 }
 
 ext {
     // Sdk and tools
     minSdkVersion = 21
-    targetSdkVersion = 29
-    compileSdkVersion = 29
+    targetSdkVersion = 30
+    compileSdkVersion = 30
 
     // App dependencies
     androidCollectionKtxVersion = '1.1.0'
-    androidCoreKtxVersion = '1.3.1'
-    androidSecurityVersion = '1.1.0-alpha02'
+    androidCoreKtxVersion = '1.6.0'
+    androidSecurityVersion = '1.1.0-alpha03'
     androidXVersion = '1.0.0'
-    androidXTestCoreVersion = '1.3.0'
-    androidXTestExtKotlinRunnerVersion = '1.1.2'
-    androidXTestRulesVersion = '1.3.0'
-    androidXAnnotations = '1.1.0'
+    androidXTestCoreVersion = '1.4.0'
+    androidXTestExtKotlinRunnerVersion = '1.1.3'
+    androidXTestRulesVersion = '1.4.0'
+    androidXAnnotations = '1.2.0'
     androidXLegacySupport = '1.0.0'
     androidXPreference = '1.1.1'
-    appCompatVersion = '1.3.0-alpha02'
-    archLifecycleVersion = '2.2.0'
+    appCompatVersion = '1.3.1'
+    archLifecycleVersion = '2.3.1'
     archTestingVersion = '2.1.0'
     cardVersion = '1.0.0'
-    coilVersion = '0.13.0'
-    constraintLayoutVersion = '2.0.1'
-    coroutinesVersion = '1.3.5'
-    daggerVersion = '2.27'
-    daggerHiltAndroidXVersion = '1.0.0-alpha02'
-    espressoVersion = '3.3.0'
+    coilVersion = '1.3.1'
+    composeVersion = '1.0.0'
+    constraintLayoutVersion = '2.0.4'
+    coroutinesVersion = '1.5.0'
+    daggerVersion = '2.28.3'
+    daggerHiltAndroidXVersion = '1.0.0'
+    espressoVersion = '3.4.0'
     fastAdapterVersion = '5.2.2'
-    firebaseAnalyticsVersion = '17.5.0'
-    firebaseCrashlyticsVersion = '17.2.1'
-    fragmentVersion = '1.2.5'
-    fragmentKtxVersion = '1.2.5'
+    firebaseAnalyticsVersion = '19.0.0'
+    firebaseCrashlyticsVersion = '18.2.0'
+    fragmentVersion = '1.3.6'
+    fragmentKtxVersion = '1.3.6'
     junitVersion = '4.13'
     ktlintVersion = '0.33.0'
     materialDialogsCoreVersion = '3.3.0'
@@ -70,10 +76,10 @@ ext {
     mockitoVersion = '2.24.5'
     moshiVersion = '1.9.2'
     okhttpLoggingVersion = '4.7.2'
-    recyclerViewVersion = '1.1.0'
+    recyclerViewVersion = '1.2.1'
     retrofitVersion = '2.8.1'
     robolectricVersion = '4.3.1'
-    roomVersion = '2.2.5'
+    roomVersion = '2.3.0'
     rulesVersion = '1.0.1'
     timberVersion = '4.7.1'
 }

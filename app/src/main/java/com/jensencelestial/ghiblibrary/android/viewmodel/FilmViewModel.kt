@@ -1,6 +1,5 @@
 package com.jensencelestial.ghiblibrary.android.viewmodel
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,10 +8,13 @@ import com.jensencelestial.ghiblibrary.android.data.model.Film
 import com.jensencelestial.ghiblibrary.android.data.repository.FilmRepository
 import com.jensencelestial.ghiblibrary.android.data.repository.result.RepResult
 import com.jensencelestial.ghiblibrary.android.ui.UIState
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.net.SocketTimeoutException
+import javax.inject.Inject
 
-class FilmViewModel @ViewModelInject constructor(
+@HiltViewModel
+class FilmViewModel @Inject constructor(
     private val filmRepository: FilmRepository
 ) : ViewModel() {
 

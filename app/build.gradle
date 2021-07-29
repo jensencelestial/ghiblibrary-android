@@ -1,16 +1,18 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
-apply plugin: 'com.google.gms.google-services'
-apply plugin: 'com.google.firebase.crashlytics'
-apply plugin: 'dagger.hilt.android.plugin'
-apply plugin: 'androidx.navigation.safeargs.kotlin'
-apply plugin: 'com.mikepenz.aboutlibraries.plugin'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+    id 'dagger.hilt.android.plugin'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'com.mikepenz.aboutlibraries.plugin'
+}
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
-    buildToolsVersion "29.0.3"
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.jensencelestial.ghiblibrary.android"
@@ -55,14 +57,19 @@ android {
     }
 
     buildFeatures {
+        compose = true
         viewBinding = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.0.0'
     }
 }
 
 dependencies {
 
     // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
 
     // KotlinX
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
@@ -76,7 +83,7 @@ dependencies {
     implementation "androidx.core:core-ktx:$androidCoreKtxVersion"
     implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
     implementation "androidx.legacy:legacy-support-v4:$androidXLegacySupport"
-    implementation "androidx.preference:preference:$androidXPreference"
+    implementation "androidx.preference:preference-ktx:$androidXPreference"
     implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
     implementation "androidx.room:room-runtime:$roomVersion"
     implementation "androidx.security:security-crypto:$androidSecurityVersion"
@@ -117,7 +124,6 @@ dependencies {
     // Once https://issuetracker.google.com/127986458 is fixed this can be testImplementation
     debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"
     implementation "androidx.test:core:$androidXTestCoreVersion"
-    implementation "androidx.fragment:fragment:$fragmentVersion"
 
     // AndroidX Test - Instrumented testing
     androidTestImplementation "androidx.test:core-ktx:$androidXTestCoreVersion"
@@ -139,17 +145,21 @@ dependencies {
     androidTestImplementation "androidx.appcompat:appcompat:$appCompatVersion"
     androidTestImplementation "com.google.android.material:material:$materialVersion"
 
-    // Dagger
-    implementation "com.google.dagger:dagger:$daggerVersion"
-    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
-    kaptAndroidTest "com.google.dagger:dagger-compiler:$daggerVersion"
-    kaptTest "com.google.dagger:dagger-compiler:$daggerVersion"
+    // Compose
+    implementation "androidx.compose.ui:ui:$composeVersion"
+    implementation("androidx.compose.ui:ui-tooling:$composeVersion")
+    implementation("androidx.compose.foundation:foundation:$composeVersion")
+    implementation("androidx.compose.material:material:$composeVersion")
+    implementation("androidx.compose.material:material-icons-core:$composeVersion")
+    implementation("androidx.compose.material:material-icons-extended:$composeVersion")
+    implementation("androidx.compose.runtime:runtime-livedata:$composeVersion")
+    implementation("androidx.compose.runtime:runtime-rxjava2:$composeVersion")
+    // UI Tests
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:$composeVersion")
 
-    // Dagger Hilt
-    implementation "com.google.dagger:hilt-android:$daggerHiltVersion"
-    kapt "com.google.dagger:hilt-android-compiler:$daggerHiltVersion"
-    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$daggerHiltAndroidXVersion"
-    kapt "androidx.hilt:hilt-compiler:$daggerHiltAndroidXVersion"
+    // Dagger
+    implementation("com.google.dagger:hilt-android:$daggerHiltVersion")
+    kapt("com.google.dagger:hilt-android-compiler:$daggerHiltVersion")
 
     // Firebase
     implementation "com.google.firebase:firebase-analytics:$firebaseAnalyticsVersion"
@@ -175,12 +185,13 @@ dependencies {
 
     // Coil
     implementation "io.coil-kt:coil:$coilVersion"
+    implementation "io.coil-kt:coil-compose:$coilVersion"
 
     // FastAdapter
     implementation "com.mikepenz:fastadapter:$fastAdapterVersion"
     implementation "com.mikepenz:fastadapter-extensions-binding:$fastAdapterVersion"
 
-    // About Librarise
+    // About Libraries
     implementation "com.mikepenz:aboutlibraries-core:$aboutLibrariesVersion"
     implementation "com.mikepenz:aboutlibraries:$aboutLibrariesVersion"
 }
