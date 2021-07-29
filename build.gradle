@@ -43,6 +43,7 @@ ext {
     compileSdkVersion = 30
 
     // App dependencies
+    accompanistVersion = '0.15.0'
     androidCollectionKtxVersion = '1.1.0'
     androidCoreKtxVersion = '1.6.0'
     androidSecurityVersion = '1.1.0-alpha03'

@@ -154,8 +154,12 @@ dependencies {
     implementation("androidx.compose.material:material-icons-extended:$composeVersion")
     implementation("androidx.compose.runtime:runtime-livedata:$composeVersion")
     implementation("androidx.compose.runtime:runtime-rxjava2:$composeVersion")
+    implementation("androidx.navigation:navigation-compose:$navigationVersion")
     // UI Tests
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:$composeVersion")
+
+    // Accompanist
+    implementation "com.google.accompanist:accompanist-swiperefresh:$accompanistVersion"
 
     // Dagger
     implementation("com.google.dagger:hilt-android:$daggerHiltVersion")
